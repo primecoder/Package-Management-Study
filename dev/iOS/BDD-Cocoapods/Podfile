@@ -1,0 +1,11 @@
+platform :ios, '12.2'
+
+workspace '../PMS-BDD'
+
+target 'BDD-Cocoapods-QuickNimbleTests' do
+    use_frameworks!
+
+    pod 'Quick'
+    pod 'Nimble'
+end
+      
