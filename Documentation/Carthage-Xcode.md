@@ -65,8 +65,8 @@ Notice Xcode creates a new project and how new files and folders are created, as
 $ tree -L 2 -d
 .
 ├── BDD-Carthage
-│&nbsp;&nbsp; ├── BDD-Carthage
-│&nbsp;&nbsp; └── BDD-Carthage.xcodeproj
+│   ├── BDD-Carthage
+│   └── BDD-Carthage.xcodeproj
 └── PMS-BDD.xcworkspace
     ├── xcshareddata
     └── xcuserdata
@@ -88,9 +88,9 @@ Your folders should look like below.
 $ tree -L 2 -d
 .
 ├── BDD-Carthage
-│&nbsp;&nbsp; ├── BDD-Carthage
-│&nbsp;&nbsp; ├── BDD-Carthage.xcodeproj
-│&nbsp;&nbsp; └── BDD-CarthageTests
+│   ├── BDD-Carthage
+│   ├── BDD-Carthage.xcodeproj
+│   └── BDD-CarthageTests
 └── PMS-BDD.xcworkspace
     ├── xcshareddata
     └── xcuserdata
@@ -113,10 +113,10 @@ And folders and directories structure should look like this:
 $ tree -L 2 -d
 .
 ├── BDD-Carthage
-│&nbsp;&nbsp; ├── BDD-Carthage
-│&nbsp;&nbsp; ├── BDD-Carthage.xcodeproj
-│&nbsp;&nbsp; ├── BDD-CarthageTests
-│&nbsp;&nbsp; └── BDD-QuickNimbleTests
+│   ├── BDD-Carthage
+│   ├── BDD-Carthage.xcodeproj
+│   ├── BDD-CarthageTests
+│   └── BDD-QuickNimbleTests
 └── PMS-BDD.xcworkspace
     ├── xcshareddata
     └── xcuserdata
@@ -217,9 +217,9 @@ tree -L 3
 ├── Cartfile.resolved
 └── Carthage
     ├── Build
-    │&nbsp;&nbsp; ├── Mac
-    │&nbsp;&nbsp; ├── iOS
-    │&nbsp;&nbsp; └── tvOS
+    │   ├── Mac
+    │   ├── iOS
+    │   └── tvOS
     └── Checkouts
         ├── Nimble
         └── Quick
