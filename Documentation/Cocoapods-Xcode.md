@@ -1,8 +1,13 @@
+[🏡 Home](https://primecoder.github.io/)
+\> [Main](https://primecoder.github.io/Package-Management-Study/)
+\> 📍
+
 # Package Management: CocoaPods & Xcode
 
 In my previous post, [Package Management: Carthage & Xcode], I looked at how to setup and use Carthage with the Xcode. In this post, I will be doing the same thing, but, with using CocoaPods instead.
 
 So, for a fair comparison, I used the same components as in my previous post:
+
 - [Quick/Quick on Github]
 - [Quick/Nimble on Github]
 
@@ -10,7 +15,7 @@ I decided to continue using my previous Xcode's workspace - [Package Management 
 
 ```
 $ tree -FL 1
-. 
+.
 ├── BDD-Carthage/
 └── PMS-BDD.xcworkspace/
 
@@ -19,7 +24,7 @@ $ open PMS-BDD.xcworkspace/
 
 Stay true to my KISS philosophy, I added the simplest iOS single view project to my workspace - BDD-Cocoapods project. If you know me, I am OCD with red-green-refactor approach, I hit CMD+R to make sure the new project build and run correctly.
 
-Quick checking [Using CocoaPods] page, all I needed was to add a Podfile to my project. If you have not installed Cocopods, you can see my previous post [here][Setup PMS]. I used `pod init` to quickly create Podfile for me.
+Quick checking [Using CocoaPods] page, all I needed was to add a Podfile to my project. If you have not installed Cocopods, you can see my previous post [here][setup pms]. I used `pod init` to quickly create Podfile for me.
 
 ```
 $ cd [DIR WITH XCODE PROJECT]
@@ -42,6 +47,7 @@ target 'BDD-Cocoapods' do
     pod 'Nimble'
 end
 ```
+
 ![Xcode Project Structure](res/images/xcode-proj-structure.png)
 
 From the image above, circled in red is the new Xcode project - BDD-Cocoapods - residing in the same Xcode's workspace as my previous project BDD-Carthage.
@@ -71,7 +77,6 @@ Take a look at the directories and files that CocoaPods generates.
 
 ![Directory Structure with Pods](res/images/dir-struct-with-pods.png)
 
-
 Impressive! CocoaPods does every thing for me. But wait! Checking the above warning! It said that it created a new workspace for me! And that I should start using this workspace instead of the old .xcodeproj file! This is not going to work for me as I already have a workspace and all projects setup. I wanted to continue using my own setup. So, I headed back to [Using CocoaPods] page. My Podfile needs modification as shown here:
 
 ```
@@ -90,7 +95,7 @@ end
 Note the line:
 
 ```
-workspace '../PMS-BDD'  
+workspace '../PMS-BDD'
 ```
 
 Since, I like to keep everything-CocoaPods contained within this project, I chose to keep Podfile at where it was and use relative path to refer to the workspace, hence `../PMS-BDD`.
@@ -107,6 +112,7 @@ Integrating client project
 Sending stats
 Pod installation complete! There are 2 dependencies from the Podfile and 2 total pods installed.
 ```
+
 Checking the directory structure was all good - everything is at where it supposes to be - self-contained within `BDD-Cocoapods` project.
 
 Built was successful. However, when I tried to run the project on the simulator, I got this error message:
@@ -116,6 +122,7 @@ dyld: Library not loaded: @rpath/XCTest.framework/XCTest
   Referenced from: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/usr/lib/swift/libswiftXCTest.dylib
   Reason: image not found
 ```
+
 I was such a dummy, Quick & Nimble have dependencies on XCTest framework, but from the Podfile, I linked them to non Test target. This is easily fixed.
 
 I created a new Test target called `BDD-Cocoapods-QuickNimbleTests`, added a new Test class `BDD_Cocoapods_QuickNimbleTests` with the following contents (pinched from the BDD_Carthage project):
@@ -174,7 +181,7 @@ target 'BDD-Cocoapods-QuickNimbleTests' do
 end
 ```
 
-Rerun `pod install` and re-open the workspace again. All targets should build and run correctly. All test cases should pass now. 
+Rerun `pod install` and re-open the workspace again. All targets should build and run correctly. All test cases should pass now.
 
 Let's take a look at our workspace.
 
@@ -222,10 +229,10 @@ Until next post, stay well and see you later.
 
 Peace.
 
-[References]: ()
-[Package Management Study]: (https://github.com/primecoder/Package-Management-Study)
-[Package Management: Carthage & Xcode]: (http://www.icuriosity.com/2019/04/package-management-carthage-xcode.html)
-[Quick/Quick on Github]: (https://github.com/Quick/Quick)
-[Quick/Nimble on Github]: (https://github.com/Quick/Nimble)
-[Using CocoaPods]: (https://guides.cocoapods.org/using/using-cocoapods.html)
-[Setup PMS]: (http://www.icuriosity.com/2019/04/package-management-carthage-vs.html)
+[references]: ()
+[package management study]: (https://github.com/primecoder/Package-Management-Study)
+[package management: carthage & xcode]: (http://www.icuriosity.com/2019/04/package-management-carthage-xcode.html)
+[quick/quick on github]: (https://github.com/Quick/Quick)
+[quick/nimble on github]: (https://github.com/Quick/Nimble)
+[using cocoapods]: (https://guides.cocoapods.org/using/using-cocoapods.html)
+[setup pms]: (http://www.icuriosity.com/2019/04/package-management-carthage-vs.html)

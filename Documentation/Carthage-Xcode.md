@@ -1,4 +1,6 @@
-[🏡 Home](https://primecoder.github.io/) > [Main](..)
+[🏡 Home](https://primecoder.github.io/)
+\> [Main](https://primecoder.github.io/Package-Management-Study/)
+\> 📍
 
 # Package Management: Carthage & Xcode
 
