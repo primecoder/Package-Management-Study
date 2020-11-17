@@ -1,39 +1,39 @@
+[🏡 Home](https://primecoder.github.io/) > [Main](..)
+
 # Package Management: Carthage & Xcode
 
-Carthage (and Cocoapods) are package management software. You are getting involved with them when you stop re-inventing the wheels and start to reuse software components. Software Reusability is a powerful concept in software development, but that's for another post. Today we will be looking at using Carthage to manage software dependency and see how it is working with our Xcode. 
-
+Carthage (and Cocoapods) are package management software. You are getting involved with them when you stop re-inventing the wheels and start to reuse software components. Software Reusability is a powerful concept in software development, but that's for another post. Today we will be looking at using Carthage to manage software dependency and see how it is working with our Xcode.
 
 First, let's pick what components are to be reused - for demonstrating purposes. I've always started a new project with the core functionality of the app. Test Driven Development (TDD) usually works when you already have a clear functional implementation to test. But, we are not at that stage yet. Normally with a new project, you are starting with ideas of what your app is going to do - how it should behave. This is leading down the Behaviour Driven Development (BDD). My projects always start with listing out the required behaviours. Quick and Nimble are very famous for doing this. Perfect! Let's head down to their Github pages.
 
-* [Quick Github Page][QuickGithub]
-* [Nimble Github Page][NimbleGithub]
-
+- [Quick Github Page][quickgithub]
+- [Nimble Github Page][nimblegithub]
 
 ## The Players &amp; The Genre
 
 The players:
 
-* Macbook 2016 with 8GB
-* Mac OS Mojave 10.14.4
-* Xcode 10.2.1
-* Carthage 0.33.0
+- Macbook 2016 with 8GB
+- Mac OS Mojave 10.14.4
+- Xcode 10.2.1
+- Carthage 0.33.0
 
 The Genre:
-* Red-Green-Refactor Play
 
-    The style of this post will follow Test/Behaviour Driven Development (TDD/BDD) approaches known as **Red-Green-Refactor** approach - that is: 
+- Red-Green-Refactor Play
 
-    1. Code (or Refactor) a little
-    2. Test a little
-    3. Fix a little
-    4. Repeat again
+  The style of this post will follow Test/Behaviour Driven Development (TDD/BDD) approaches known as **Red-Green-Refactor** approach - that is:
 
+  1. Code (or Refactor) a little
+  2. Test a little
+  3. Fix a little
+  4. Repeat again
 
 ## Initial Xcode Workspace
 
 In this series, we will be creating and working on several Xcode projects. It's a good idea to group them all in a single workspace. Let's create a workspace for our experiments.
 
-![][XcodeCreateWS]
+![][xcodecreatews]
 
 I created an empty workspace called 'PMS-BDD'. Xcode creates a content package `PMS-BDD.xcworkspace` as below:
 
@@ -45,21 +45,20 @@ $ tree
 
 Next, let's add an empty Xcode project. I created a project called `BDD-Carthage`
 
-![][XcodeNewPrj1]
+![][xcodenewprj1]
 
-* Use 'BDD-Carthage' for Product Name
-* Use 'Swift' for Language
-* Uncheck Use Core Data, Include Unit Tests, and Include UI Tests. We will add them later manually
-* Specify other details as suitable for your team and organisation settings
-* Click Next
+- Use 'BDD-Carthage' for Product Name
+- Use 'Swift' for Language
+- Uncheck Use Core Data, Include Unit Tests, and Include UI Tests. We will add them later manually
+- Specify other details as suitable for your team and organisation settings
+- Click Next
 
-![][XcodeNewPrj2]
+![][xcodenewprj2]
 
-* Make sure to add this new project to PMS-BDD, as shown above
-* Click Create
+- Make sure to add this new project to PMS-BDD, as shown above
+- Click Create
 
 Notice Xcode creates a new project and how new files and folders are created, as shown below. Get yourself familiar with them, so when Carthage adds new folders and files, you will recognise them.
-
 
 ```
 $ tree -L 2 -d
@@ -78,9 +77,9 @@ It is important to make sure that your project builds and runs on your chosen si
 
 Next, add the standard XCTest (TDD) test target. This will be handy for you to compare the standard XCTest cases against Quick &amp; Nimble test cases.
 
-![][AddTestTarget1]
+![][addtesttarget1]
 
-![][AddTestTarget2]
+![][addtesttarget2]
 
 Your folders should look like below.
 
@@ -102,10 +101,9 @@ Now build and test your new test cases. They all must pass successfully before w
 
 Next, we are going to add another test target. This one we are going to modify it to use Quick &amp; Nimble for our BDD test cases. Let's called it 'BDD-QuickNimbleTests'.
 
-![][QNTestTarget]
+![][qntesttarget]
 
-
-![][XcodeStructureWithQN]
+![][xcodestructurewithqn]
 
 And folders and directories structure should look like this:
 
@@ -126,7 +124,6 @@ $ tree -L 2 -d
 
 Again, build and run **all** test targets and test cases. They must all work.
 
-
 ## Test Criteria - The Required Behaviour
 
 Ok, what are we testing here. We want to use Quick &amp; Nimble which are 3rd-party reusable components. Let's define the behaviour that we want.
@@ -134,15 +131,16 @@ Ok, what are we testing here. We want to use Quick &amp; Nimble which are 3rd-pa
 1. Quick &amp; Nimble must be loaded correctly
 
    So, for this behaviour:
-   * Quick &amp; Nimble frameworks must be included and our project to build correctly
-   * Our test case must be able to import the frameworks correctly
-   * Our test case must be able to instantiate the test case correctly
+
+   - Quick &amp; Nimble frameworks must be included and our project to build correctly
+   - Our test case must be able to import the frameworks correctly
+   - Our test case must be able to instantiate the test case correctly
 
 2. Our project must be able to define the basic (**minimum**) behaviours. These are:
-   
-   * it() clause
-   * context() clause
-   * describe() clause
+
+   - it() clause
+   - context() clause
+   - describe() clause
 
 Assume basic knowledge of BDD and Quick &amp; Nimble this is the **minimum** Test Spec (QuickSpec) we can use.
 
@@ -207,7 +205,7 @@ $
 Carthage checks, resolves all dependencies, downloads source files, and builds them for us.
 
 ```
-tree -L 3 
+tree -L 3
 .
 ├── BDD-Carthage
 ├── BDD-Carthage.xcodeproj
@@ -228,31 +226,33 @@ tree -L 3
 
 You will see, Carthage create these new items:
 
-* Cartfile.resolved
+- Cartfile.resolved
 
-    Carthage lists all the components and their versions here. It's a quick place to check the versions of your components here. Also, it's a good idea to commit this file in your source repository, this information will be handy for your team members to know. Let's peek a look:
+  Carthage lists all the components and their versions here. It's a quick place to check the versions of your components here. Also, it's a good idea to commit this file in your source repository, this information will be handy for your team members to know. Let's peek a look:
 
-    ```
-    github "Quick/Nimble" "v8.0.1"
-    github "Quick/Quick" "v2.1.0"
-    ```
-* 'Carthage' folder
+  ```
+  github "Quick/Nimble" "v8.0.1"
+  github "Quick/Quick" "v2.1.0"
+  ```
 
-   This is where Carthage puts all download files and built artefacts
+- 'Carthage' folder
 
-* 'Carthage/Checkouts'
+  This is where Carthage puts all download files and built artefacts
 
-   This is where all the checkout source codes are
+- 'Carthage/Checkouts'
 
-*  'Carthage/Build'
+  This is where all the checkout source codes are
 
-   These is where all the built artefacts are kept. Notice subfolder 'Mac', 'iOS', and 'tvOS'. Since we did not specify which platform to use, Carthage assumes **all**. Usually, my project uses only one specific platform, you can tell Carthage to build for only the platform to use, i.e. 'iOS'. This will reduce download and build time significantly.
+- 'Carthage/Build'
 
-    ```
-    $ carthage update --platform iOS
+  These is where all the built artefacts are kept. Notice subfolder 'Mac', 'iOS', and 'tvOS'. Since we did not specify which platform to use, Carthage assumes **all**. Usually, my project uses only one specific platform, you can tell Carthage to build for only the platform to use, i.e. 'iOS'. This will reduce download and build time significantly.
 
-    ```
-Switch back to Xcode, you will be still staring at the error message "No such module 'Quick'". This is because, we haven't introduce Quick &amp; Nimble to Xcode yet.
+      ```
+      $ carthage update --platform iOS
+
+      ```
+
+  Switch back to Xcode, you will be still staring at the error message "No such module 'Quick'". This is because, we haven't introduce Quick &amp; Nimble to Xcode yet.
 
 ### Introduce Quick &amp; Nimble to Xcode
 
@@ -263,22 +263,21 @@ Done. It should be that simple. No?!. Unfortunately, this relationship requires 
 
 Checking [Quick's Installation Guide](https://github.com/Quick/Quick/blob/master/Documentation/en-us/InstallingQuick.md), we need to add the two frameworks to our **Test Target**.
 
-![][AddQNFrameworks]
+![][addqnframeworks]
 
-
-![][AddQNFrameworks2]
+![][addqnframeworks2]
 
 Remember the folder/directory structure that we looked at? Navigate to the folders where the build artefacts reside. We need to add these frameworks to our 'Link Binary With Libraries' section.
 
-![][AddQNFrameworks3]
+![][addqnframeworks3]
 
 Add also add a new Copy File Phase. The 'Build Phases' of your project settings should look like this.
 
-![][XcodeBuildPhases]
+![][xcodebuildphases]
 
 Click COMMAND + U to test your project and Ta Da! all test cases should all be successful. Now we are back in the green zone.
 
-Let's refactor our test class to cover the second required behaviour - be able to define behaviours for testing. 
+Let's refactor our test class to cover the second required behaviour - be able to define behaviours for testing.
 
 ```
 import Quick
@@ -322,29 +321,30 @@ class BDD_QuickAndNimbleTests: QuickSpec {
 
 Hit COMMAND+U, all your test cases should run successfully. Check Xcode's Test Navigatior, notice how all your test cases are listed in human readable form there!
 
-![][QNTestNav]
+![][qntestnav]
 
 This was so fun! At this point, we have built ourselves the most basic - **minimum** Xcode project which utilises a package management software (Carthage) and integrates with 2 external 3rd-party components: Quick &amp; Nimble. Once we understand and get our project to work on this minimum framework, we can easily and confidently expand and refactor our project for more functionality.
 
-In the next post, we will be looking at doing the same thing - but with the Cocoapods package management. 
+In the next post, we will be looking at doing the same thing - but with the Cocoapods package management.
 
 Please stay tuned.
 
 Cheers!
 
 <!-- Links -->
-[BLOG-PM-Setup]: http://www.icuriosity.com/2019/04/package-management-carthage-vs.html
-[QuickGithub]: https://github.com/Quick/Quick "Quick/Quick Github Page"
-[NimbleGithub]: https://github.com/Quick/Nimble "Quick/Nimble Github Page"
-[XcodeCreateWS]: ./res/images/xcode-workspace.png
-[XcodeNewPrj1]: ./res/images/BDD-Carthage-new-prj-1.png
-[XcodeNewPrj2]: ./res/images/BDD-Carthage-new-prj-2.png
-[AddTestTarget1]: ./res/images/xcode-add-testtarget.png
-[AddTestTarget2]: ./res/images/xcode-add-testtarget2.png
-[QNTestTarget]: ./res/images/add-quicknimble-testtarget.png
-[XcodeStructureWithQN]: ./res/images/xcode-folde-structure.png
-[AddQNFrameworks]: ./res/images/add-quicknimble-frameworks.png
-[AddQNFrameworks2]: ./res/images/add-qnframeworks-2.png
-[AddQNFrameworks3]: ./res/images/add-qnframeworks-3.png
-[XcodeBuildPhases]: ./res/images/prj-buildphases.png
-[QNTestNav]: ./res/images/QN-TestNavigator.png
+
+[blog-pm-setup]: http://www.icuriosity.com/2019/04/package-management-carthage-vs.html
+[quickgithub]: https://github.com/Quick/Quick "Quick/Quick Github Page"
+[nimblegithub]: https://github.com/Quick/Nimble "Quick/Nimble Github Page"
+[xcodecreatews]: ./res/images/xcode-workspace.png
+[xcodenewprj1]: ./res/images/BDD-Carthage-new-prj-1.png
+[xcodenewprj2]: ./res/images/BDD-Carthage-new-prj-2.png
+[addtesttarget1]: ./res/images/xcode-add-testtarget.png
+[addtesttarget2]: ./res/images/xcode-add-testtarget2.png
+[qntesttarget]: ./res/images/add-quicknimble-testtarget.png
+[xcodestructurewithqn]: ./res/images/xcode-folde-structure.png
+[addqnframeworks]: ./res/images/add-quicknimble-frameworks.png
+[addqnframeworks2]: ./res/images/add-qnframeworks-2.png
+[addqnframeworks3]: ./res/images/add-qnframeworks-3.png
+[xcodebuildphases]: ./res/images/prj-buildphases.png
+[qntestnav]: ./res/images/QN-TestNavigator.png
