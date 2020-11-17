@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		5C92C372252841D200346AA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C92C371252841D200346AA4 /* Preview Assets.xcassets */; };
 		5C92C37D252841D300346AA4 /* SwiftUI_BDD_SPMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92C37C252841D300346AA4 /* SwiftUI_BDD_SPMTests.swift */; };
 		5C92C388252841D300346AA4 /* SwiftUI_BDD_SPMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92C387252841D300346AA4 /* SwiftUI_BDD_SPMUITests.swift */; };
+		5C92C39D252843E200346AA4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 5C92C39C252843E200346AA4 /* Quick */; };
+		5C92C3A3252844F100346AA4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 5C92C3A2252844F100346AA4 /* Nimble */; };
+		5C92C3A82528462D00346AA4 /* SwiftUI_BDD_SPM_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92C3A72528462D00346AA4 /* SwiftUI_BDD_SPM_Spec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,7 @@
 		5C92C383252841D300346AA4 /* SwiftUI_BDD_SPMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_BDD_SPMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C92C387252841D300346AA4 /* SwiftUI_BDD_SPMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BDD_SPMUITests.swift; sourceTree = "<group>"; };
 		5C92C389252841D300346AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C92C3A72528462D00346AA4 /* SwiftUI_BDD_SPM_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BDD_SPM_Spec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C92C39D252843E200346AA4 /* Quick in Frameworks */,
+				5C92C3A3252844F100346AA4 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,7 @@
 			children = (
 				5C92C37C252841D300346AA4 /* SwiftUI_BDD_SPMTests.swift */,
 				5C92C37E252841D300346AA4 /* Info.plist */,
+				5C92C3A72528462D00346AA4 /* SwiftUI_BDD_SPM_Spec.swift */,
 			);
 			path = SwiftUI_BDD_SPMTests;
 			sourceTree = "<group>";
@@ -164,6 +171,10 @@
 				5C92C37A252841D300346AA4 /* PBXTargetDependency */,
 			);
 			name = SwiftUI_BDD_SPMTests;
+			packageProductDependencies = (
+				5C92C39C252843E200346AA4 /* Quick */,
+				5C92C3A2252844F100346AA4 /* Nimble */,
+			);
 			productName = SwiftUI_BDD_SPMTests;
 			productReference = 5C92C378252841D300346AA4 /* SwiftUI_BDD_SPMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -217,6 +228,10 @@
 				Base,
 			);
 			mainGroup = 5C92C35E252841CE00346AA4;
+			packageReferences = (
+				5C92C39B252843E200346AA4 /* XCRemoteSwiftPackageReference "Quick" */,
+				5C92C3A1252844F100346AA4 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 5C92C368252841CE00346AA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C92C3A82528462D00346AA4 /* SwiftUI_BDD_SPM_Spec.swift in Sources */,
 				5C92C37D252841D300346AA4 /* SwiftUI_BDD_SPMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +596,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C92C39B252843E200346AA4 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		5C92C3A1252844F100346AA4 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C92C39C252843E200346AA4 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92C39B252843E200346AA4 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		5C92C3A2252844F100346AA4 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92C3A1252844F100346AA4 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C92C35F252841CE00346AA4 /* Project object */;
 }
