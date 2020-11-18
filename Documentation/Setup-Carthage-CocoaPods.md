@@ -1,3 +1,7 @@
+[🏡 Home](https://primecoder.github.io/)
+\> [Main](https://primecoder.github.io/Package-Management-Study/)
+\> 📍
+
 # Setup Carthage and CocoaPods
 
 CocoaPods and Carthage are two of the most prominent package-management and dependency management software. They are very popular in Swift and Objective-C communities. I have been using Carthage heavily with my last client for the past 2 years and sort of "touch-and-go" with the Cocoapods. It's time to dissect and look at them closely.<br />
@@ -10,17 +14,17 @@ The first step - getting to know them. Here are the best places to get informati
 
 1. [Carthage on Github]
 
-    This is the best place to start learning about Carthage.
+   This is the best place to start learning about Carthage.
 
 ### CocoaPods
 
 1. [Cocoapods on Github]
 
-    CocoaPods also has Github page. This was the how they started and this was how I found and trust them. 
+   CocoaPods also has Github page. This was the how they started and this was how I found and trust them.
 
 2. [Cocoapods Website]
 
-    This is a hint of who is winning. CocoaPods is getting ahead and now has their own website.
+   This is a hint of who is winning. CocoaPods is getting ahead and now has their own website.
 
 Github Pages is a good starting point. That was how I found them and many of the **trust-able** pieces of software. I feel more comfortable with them when they bare all their source codes open for inspection. Plus, there are many sets of eyes helping with the inspection - thus the Check &amp; Bound Due Process at work.
 
@@ -28,12 +32,12 @@ Github Pages is a good starting point. That was how I found them and many of the
 
 All these happened on must trusty MacBook with the following spec:
 
-* Macbook 2016 with 8GM RAM
-* Mac OS Mojave 10.14.4
+- Macbook 2016 with 8GM RAM
+- Mac OS Mojave 10.14.4
 
 ### Installing &amp; Fixing Carthage
 
-![][Carthage Logo]
+![][carthage logo]
 
 Most of my Carthage work is on my mac at work. I haven't used it on my personal MacBook in a while. When I attempted to use it again, it complained that I had a version that was too old. So, now was a good time to upgraded it.
 
@@ -47,6 +51,7 @@ $ brew upgrade carthage
 ```
 
 Output:
+
 ```
 Updating Homebrew...
 ==> Auto-updated Homebrew!
@@ -73,6 +78,7 @@ Now, I remembered, the last time I installed Carthage was with using the .pkg fi
 $ brew install carthage
 
 ```
+
 Toward the end of installation, I got this error!
 
 ```
@@ -107,13 +113,13 @@ $ carthage version
 
 ```
 
-Yeh! 
+Yeh!
 
 Phew! Next is the pods.
 
 ### Installing Cocoapods
 
-![][Cocoapods Logo]
+![][cocoapods logo]
 
 First, Check my Pods.
 
@@ -169,10 +175,8 @@ $ pod --version
 
 Yes! Yes! Now we are ready to play with them.
 
-
-[Carthage on Github]: https://github.com/Carthage/Carthage "Carthage on Github"
-[Cocoapods on Github]: https://github.com/CocoaPods/CocoaPods "Cocoapods on Github"
-[Cocoapods Website]: https://cocoapods.org/ "Cocoapods Website"
-[Carthage Logo]: https://3.bp.blogspot.com/-LkEQ90efbJ8/XMUl-moP7VI/AAAAAAAAZII/bHNnJ3ROJusSO9hPTo4m8ymBZU3-cl9iQCLcBGAs/s1600/carthage-logo-small.png
-[Cocoapods Logo]: https://4.bp.blogspot.com/-2H1Rir2BsWY/XMUmeX7rNmI/AAAAAAAAZIQ/5cufO2IfFbE2Tz6VsiDJPJhtP9jpJqWugCLcBGAs/s320/cocoapods-logo-small.png
-
+[carthage on github]: https://github.com/Carthage/Carthage "Carthage on Github"
+[cocoapods on github]: https://github.com/CocoaPods/CocoaPods "Cocoapods on Github"
+[cocoapods website]: https://cocoapods.org/ "Cocoapods Website"
+[carthage logo]: https://3.bp.blogspot.com/-LkEQ90efbJ8/XMUl-moP7VI/AAAAAAAAZII/bHNnJ3ROJusSO9hPTo4m8ymBZU3-cl9iQCLcBGAs/s1600/carthage-logo-small.png
+[cocoapods logo]: https://4.bp.blogspot.com/-2H1Rir2BsWY/XMUmeX7rNmI/AAAAAAAAZIQ/5cufO2IfFbE2Tz6VsiDJPJhtP9jpJqWugCLcBGAs/s320/cocoapods-logo-small.png
